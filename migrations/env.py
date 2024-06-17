@@ -3,7 +3,7 @@ from logging.config import fileConfig
 from alembic import context
 from sqlalchemy import URL, create_engine
 
-from app.models import METADATA
+from app.models.base import METADATA
 from app.settings import settings
 
 

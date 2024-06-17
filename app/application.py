@@ -2,7 +2,8 @@ from fastapi import FastAPI
 from that_depends.providers import DIContextMiddleware
 
 from app import exceptions
-from app.api.decks import ROUTER
+from app.api import endpoints
+
 from app.exceptions import DatabaseValidationError
 from app.settings import settings
 
@@ -13,7 +14,8 @@ def get_app() -> FastAPI:
         debug=settings.debug,
     )
 
-    _app.include_router(ROUTER, prefix="/api")
+    _app.include_router(endpoints.ROUTER, prefix="/api")
+
 
     _app.add_middleware(DIContextMiddleware)
 

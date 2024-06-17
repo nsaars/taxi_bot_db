@@ -4,15 +4,15 @@ from sqlalchemy.engine.url import URL
 
 
 class Settings(pydantic_settings.BaseSettings):
-    service_name: str = "FastAPI template"
-    debug: bool = False
+    service_name: str = "taxi_database"
+    debug: bool = True
     log_level: LogLevels = LogLevels.info
 
     db_driver: str = "postgresql+asyncpg"
-    db_host: str = "db"
+    db_host: str = "localhost"
     db_port: int = 5432
     db_user: str = "postgres"
-    db_password: str = "password"
+    db_password: str = "pulat"
     db_database: str = "postgres"
 
     db_pool_size: int = 5

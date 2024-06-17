@@ -8,13 +8,13 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext import asyncio as sa_async
 from sqlalchemy.orm import selectinload
 
-from app import models
+from app.models.base import BaseModel
 from app.db.helpers import operators_map
 from app.exceptions import DatabaseValidationError
 
 
 logger = logging.getLogger(__name__)
-T = typing.TypeVar("T", bound=models.BaseModel)
+T = typing.TypeVar("T", bound=BaseModel)
 
 
 @dataclasses.dataclass(kw_only=True)
@@ -83,6 +83,7 @@ class BaseRepository(typing.Generic[T]):
     def _build_filters(self, filters: dict[str, typing.Any]) -> list[typing.Any]:
         """Build list of WHERE conditions."""
         result = []
+        print(filters)
         for expression, value in filters.items():
             parts = expression.split("__")
             op_name = parts[1] if len(parts) > 1 else "exact"
@@ -91,6 +92,7 @@ class BaseRepository(typing.Generic[T]):
                 raise KeyError(msg)
             operator = operators_map[op_name]
             column = getattr(self.model, parts[0])
+            print(column, value, operator)
             result.append(operator(column, value))
         return result
 
@@ -118,6 +120,16 @@ class BaseRepository(typing.Generic[T]):
 
     async def save(self, instance: T, commit: bool = True) -> None:
         self.session.add(instance)
+        try:
+            if commit:
+                await self.session.commit()
+            else:
+                await self.session.flush()
+        except IntegrityError as e:
+            self._raise_validation_exception(e)
+
+    async def delete(self, instance: T, commit: bool = True) -> None:  #
+        await self.session.delete(instance)
         try:
             if commit:
                 await self.session.commit()

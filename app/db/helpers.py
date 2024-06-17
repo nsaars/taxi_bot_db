@@ -6,6 +6,7 @@ from sqlalchemy.sql import operators
 # https://github.com/absent1706/sqlalchemy-mixins/blob/master/sqlalchemy_mixins/smartquery.py
 operators_map: dict[str, typing.Any] = {
     "isnull": lambda c, v: (c is None) if v else (c is not None),
+    "is": operators.is_,
     "exact": operators.eq,
     "ne": operators.ne,  # not equal or is not (for None)
     "gt": operators.gt,  # greater than , >
@@ -21,5 +22,7 @@ operators_map: dict[str, typing.Any] = {
     "istartswith": lambda c, v: c.ilike(v + "%"),
     "endswith": operators.endswith_op,
     "iendswith": lambda c, v: c.ilike("%" + v),
+    "contains": lambda c, v: c.contains("%" + v),
+    "icontains": lambda c, v: c.icontains("%" + v),
     "overlaps": lambda c, v: c.overlaps(v),
 }
