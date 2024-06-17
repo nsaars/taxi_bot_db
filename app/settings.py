@@ -1,7 +1,10 @@
 import pydantic_settings
 from granian.log import LogLevels
 from sqlalchemy.engine.url import URL
+from environs import Env
 
+env = Env()
+env.read_env()
 
 class Settings(pydantic_settings.BaseSettings):
     service_name: str = "taxi_database"
@@ -9,11 +12,11 @@ class Settings(pydantic_settings.BaseSettings):
     log_level: LogLevels = LogLevels.info
 
     db_driver: str = "postgresql+asyncpg"
-    db_host: str = "localhost"
-    db_port: int = 5432
-    db_user: str = "postgres"
-    db_password: str = "pulat"
-    db_database: str = "postgres"
+    db_host: str = env.str("PGHOST")
+    db_port: int = env.str("PGPORT")
+    db_user: str = env.str("PGUSER")
+    db_password: str = env.str("PGPASSWORD")
+    db_database: str = env.str("POSTGRES_DB")
 
     db_pool_size: int = 5
     db_max_overflow: int = 0
