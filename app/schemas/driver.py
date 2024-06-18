@@ -2,7 +2,7 @@ import typing
 from datetime import datetime
 from typing import Optional, List, Annotated
 
-from app.schemas.base import Base
+from schemas.base import Base
 
 
 class Driver(Base):
