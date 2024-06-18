@@ -19,7 +19,7 @@ class Settings(pydantic_settings.BaseSettings):
     db_echo: bool = False
     db_pool_pre_ping: bool = True
 
-    app_port: int = int(os.environ.get("PORT", settings.app_port))
+    app_port: int = int(env.str("PORT"))
 
     @property
     def db_dsn(self) -> URL:
