@@ -1,6 +1,6 @@
 from typing import Optional, List
 
-from app.schemas.base import Base
+from schemas.base import Base
 
 
 class Manager(Base):
