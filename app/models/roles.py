@@ -3,8 +3,8 @@ import datetime
 import sqlalchemy as sa
 from sqlalchemy import orm
 
-from app.helpers.datetime import generate_utc_dt, generate_utc_dt_naive
-from app.models.base import BaseModel
+from helpers.datetime import generate_utc_dt, generate_utc_dt_naive
+from models.base import BaseModel
 
 
 class Driver(BaseModel):
