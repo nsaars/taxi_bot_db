@@ -6,10 +6,10 @@ from sqlalchemy import Integer, Float, Double, Boolean
 from that_depends import Provide
 from that_depends.providers import container_context
 
-from app import models
-from app import schemas
-from app.repositories import repositories
-from app.ioc import IOCContainer
+import models
+import schemas
+from repositories import repositories
+from ioc import IOCContainer
 
 ROUTER = APIRouter()
 
