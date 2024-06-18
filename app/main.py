@@ -1,7 +1,7 @@
 import granian
 from granian.constants import Interfaces, Loops
 
-from app.settings import settings
+from settings import settings
 
 
 if __name__ == "__main__":
