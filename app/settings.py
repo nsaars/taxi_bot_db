@@ -23,7 +23,7 @@ class Settings(pydantic_settings.BaseSettings):
 
     @property
     def db_dsn(self) -> URL:
-        return db_url
+        return self.db_url
 
 
 settings = Settings()
