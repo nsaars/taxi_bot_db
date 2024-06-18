@@ -8,9 +8,9 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext import asyncio as sa_async
 from sqlalchemy.orm import selectinload
 
-from app.models.base import BaseModel
-from app.db.helpers import operators_map
-from app.exceptions import DatabaseValidationError
+from models.base import BaseModel
+from db.helpers import operators_map
+from exceptions import DatabaseValidationError
 
 
 logger = logging.getLogger(__name__)
