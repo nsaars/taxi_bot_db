@@ -1,8 +1,8 @@
 import dataclasses
 from typing import Type
 
-from app import models
-from app.repositories.base import BaseRepository
+from import models
+from repositories.base import BaseRepository
 
 
 @dataclasses.dataclass(kw_only=True)
