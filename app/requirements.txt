@@ -41,6 +41,6 @@ websockets==12.0
 environs==11.0.0
 marshmallow==3.21.3
 packaging==24.1
-psycopg2==2.9.9
+
 async-timeout==4.0.3
 asyncpg==0.29.0
