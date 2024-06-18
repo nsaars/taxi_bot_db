@@ -7,7 +7,7 @@ from settings import settings
 if __name__ == "__main__":
     granian.Granian(
         target="application:application",
-        address="0.0.0.0",  # noqa: S104
+        address="https://taxi_bot_db.up.railway.app",  # noqa: S104
         port=settings.app_port,
         interface=Interfaces.ASGI,
         log_dictconfig={"root": {"level": "INFO"}} if not settings.debug else {},
