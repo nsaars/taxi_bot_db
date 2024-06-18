@@ -3,8 +3,8 @@ from logging.config import fileConfig
 from alembic import context
 from sqlalchemy import URL, create_engine
 
-from app.models.base import METADATA
-from app.settings import settings
+from models.base import METADATA
+from settings import settings
 
 
 def get_dsn() -> URL:
