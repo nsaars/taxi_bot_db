@@ -5,7 +5,7 @@ import typing
 import sqlalchemy as sa
 from sqlalchemy import orm
 
-from app.helpers.datetime import generate_utc_dt
+from helpers.datetime import generate_utc_dt
 
 logger = logging.getLogger(__name__)
 
