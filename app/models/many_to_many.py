@@ -1,7 +1,7 @@
 import sqlalchemy as sa
 from sqlalchemy import orm
 
-from app.models.base import NoIdModel, BaseModel
+from models.base import NoIdModel, BaseModel
 
 
 class ProductsOffices(BaseModel):
