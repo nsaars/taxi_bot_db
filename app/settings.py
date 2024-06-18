@@ -12,7 +12,7 @@ class Settings(pydantic_settings.BaseSettings):
     log_level: LogLevels = LogLevels.info
 
     db_driver: str = "postgresql+asyncpg"
-    db_url = env.str("DATABASE_URL")
+    db_url: str = env.str("DATABASE_URL")
 
     db_pool_size: int = 5
     db_max_overflow: int = 0
