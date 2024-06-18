@@ -1,7 +1,7 @@
 import dataclasses
 from typing import Type
 
-from import models
+import models
 from repositories.base import BaseRepository
 
 
