@@ -1,7 +1,7 @@
 import sqlalchemy as sa
 from sqlalchemy import orm
 
-from app.models.base import BaseModel
+from models.base import BaseModel
 
 
 class Product(BaseModel):
