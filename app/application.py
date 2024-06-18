@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from that_depends.providers import DIContextMiddleware
 
-from app import exceptions
-from app.api import endpoints
+import exceptions
+from api import endpoints
 
-from app.exceptions import DatabaseValidationError
-from app.settings import settings
+from exceptions import DatabaseValidationError
+from settings import settings
 
 
 def get_app() -> FastAPI:
