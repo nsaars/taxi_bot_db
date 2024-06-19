@@ -1,14 +1,16 @@
 from logging.config import fileConfig
-
+import loggig 
 from alembic import context
 from sqlalchemy import URL, create_engine
 
 from models.base import METADATA
 from settings import settings
 
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 def get_dsn() -> URL:
-    print(settings.get_fuck())
+    logger.warning(str(settings.get_db_dsn()))
     return settings.get_db_dsn()
 
 
