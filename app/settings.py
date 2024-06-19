@@ -24,6 +24,10 @@ class Settings(pydantic_settings.BaseSettings):
     @property
     def db_dsn(self) -> URL:
         return self.db_driver + self.db_url
-
+        
+    def get_db_dsn(self, db_driver=None) -> str:
+            if db_driver is None:
+                db_driver = self.db_driver
+            return db_driver + self.db_url
 
 settings = Settings()
