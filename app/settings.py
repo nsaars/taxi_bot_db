@@ -12,7 +12,11 @@ class Settings(pydantic_settings.BaseSettings):
     log_level: LogLevels = LogLevels.info
 
     db_driver: str = "postgresql+asyncpg"
-    db_url: str = env.str("DBURL")
+    db_host: str = env.str("PGHOST")
+    db_port: int = int(env.str("PGPORT"))
+    db_user: str = env.str("PGUSER")
+    db_password: str = env.str("PGPASSWORD")
+    db_database: str = env.str("PGDATABASE")
 
     db_pool_size: int = 5
     db_max_overflow: int = 0
@@ -23,11 +27,14 @@ class Settings(pydantic_settings.BaseSettings):
 
     @property
     def db_dsn(self) -> URL:
-        return self.db_driver + self.db_url
+        return URL.create(
+            self.db_driver,
+            self.db_user,
+            self.db_password,
+            self.db_host,
+            self.db_port,
+            self.db_database,
+        )
         
-    def get_db_dsn(self, db_driver=None) -> str:
-            if db_driver is None:
-                db_driver = self.db_driver
-            return db_driver + self.db_url
 
 settings = Settings()
