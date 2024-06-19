@@ -8,8 +8,7 @@ from settings import settings
 
 
 def get_dsn() -> URL:
-    db_dsn = settings.db_dsn
-    return db_dsn.set(drivername="postgresql")
+    return settings.get_db_dsn()
 
 
 # this is the Alembic Config object, which provides
