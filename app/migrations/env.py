@@ -1,5 +1,5 @@
 from logging.config import fileConfig
-import loggig 
+import logging 
 from alembic import context
 from sqlalchemy import URL, create_engine
 
