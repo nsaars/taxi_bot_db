@@ -11,7 +11,6 @@ logger = logging.getLogger(__name__)
 
 def get_dsn() -> URL:
     logger.warning(str(settings.get_db_dsn("postgresql")))
-    print(str(settings.get_db_dsn("postgresql")))
     return settings.get_db_dsn("postgresql")
 
 
@@ -57,7 +56,7 @@ def run_migrations_online() -> None:
     connection with the context.
     """
     connectable = create_engine(get_dsn())
-    print(123)
+    print(get_dsn())
     with connectable.connect() as connection:
         context.configure(connection=connection, target_metadata=target_metadata)
 
