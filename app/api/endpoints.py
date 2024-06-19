@@ -80,6 +80,7 @@ def generate_crud_endpoints(model_name: str, schema_view_name: str = None, schem
             request: Request,
             repo: repo_instance = Depends(Provide[getattr(IOCContainer, repo_lower_name)]),
     ) -> schema_list:
+        print("GET")
         filters = get_filters(request.query_params, model)
         objects = await repo.filter(filters=filters)
 
@@ -93,6 +94,8 @@ def generate_crud_endpoints(model_name: str, schema_view_name: str = None, schem
             data: schema_create,
             repo: repo_instance = Depends(Provide[getattr(IOCContainer, repo_lower_name)]),
     ) -> schema_view:
+        print("POST")
+        
         instance = model(**data.dict())
         await repo.save(instance)
         return cast(schema_view, instance)
