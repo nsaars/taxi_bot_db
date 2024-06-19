@@ -8,7 +8,7 @@ from settings import settings
 
 
 def get_dsn() -> URL:
-    print(settings.get_db_dsn())
+    print(settings.get_fuck())
     return settings.get_db_dsn()
 
 
