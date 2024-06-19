@@ -5,6 +5,7 @@ from settings import settings
 
 
 if __name__ == "__main__":
+    print(12123)
     granian.Granian(
         target="application:application",
         address="0.0.0.0",
