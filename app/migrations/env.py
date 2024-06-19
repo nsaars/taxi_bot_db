@@ -8,7 +8,7 @@ from settings import settings
 
 
 def get_dsn() -> URL:
-    print(123123)
+    print(settings.get_db_dsn())
     return settings.get_db_dsn()
 
 
@@ -54,7 +54,7 @@ def run_migrations_online() -> None:
     connection with the context.
     """
     connectable = create_engine(get_dsn())
-
+    print(123)
     with connectable.connect() as connection:
         context.configure(connection=connection, target_metadata=target_metadata)
 
