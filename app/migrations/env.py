@@ -10,9 +10,9 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(leve
 logger = logging.getLogger(__name__)
 
 def get_dsn() -> URL:
-    logger.warning(str(settings.get_db_dsn()))
-    print(str(settings.get_db_dsn()))
-    return settings.get_db_dsn()
+    logger.warning(str(settings.get_db_dsn("postgresql")))
+    print(str(settings.get_db_dsn("postgresql")))
+    return settings.get_db_dsn("postgresql")
 
 
 # this is the Alembic Config object, which provides
