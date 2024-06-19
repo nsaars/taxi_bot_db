@@ -80,7 +80,6 @@ def generate_crud_endpoints(model_name: str, schema_view_name: str = None, schem
             request: Request,
             repo: repo_instance = Depends(Provide[getattr(IOCContainer, repo_lower_name)]),
     ) -> schema_list:
-        print(request)
         filters = get_filters(request.query_params, model)
         objects = await repo.filter(filters=filters)
 
