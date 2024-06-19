@@ -11,6 +11,7 @@ logger = logging.getLogger(__name__)
 
 def get_dsn() -> URL:
     logger.warning(str(settings.get_db_dsn()))
+    print(str(settings.get_db_dsn()))
     return settings.get_db_dsn()
 
 
