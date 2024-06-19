@@ -6,6 +6,7 @@ from models.base import METADATA
 from settings import settings
 
 def get_dsn() -> URL:
+    db_dsn = settings.db_dsn
     return db_dsn.set(drivername="postgresql")
 
 
