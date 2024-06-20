@@ -6,8 +6,8 @@ from schemas.base import Base
 class State(Base):
     id: int
     user_id: int
-    title: Optional[str] = None
-    data: Optional[Dict] = None
+    title: Optional[str]
+    data: Optional[Dict]
 
 
 class StateCreate(Base):
