@@ -6,8 +6,8 @@ from schemas.base import Base
 class User(Base):
     id: int
     telegram_id: int
-    telegram_username: Optional[str] = None
-    telegram_name: Optional[str] = None
+    telegram_username: Optional[str]
+    telegram_name: Optional[str]
 
 
 class UserCreate(Base):
