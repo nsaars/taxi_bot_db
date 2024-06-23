@@ -1,9 +1,10 @@
 from typing import Optional, List
 
-from schemas.base import Base
+from app.schemas.base import Base
 
 
 class Settings(Base):
+    id: int
     allow_credits: bool
 
 
